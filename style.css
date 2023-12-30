@@ -11,6 +11,24 @@ body {
     height: 100vh;
 }
 
+@keyframes correctfillIn {
+    0% {
+      background-color: white;
+    }
+    100% {
+      background-color: rgb(144, 238, 144);
+    }
+}
+
+@keyframes wrongfillIn {
+    0% {
+      background-color: white;
+    }
+    100% {
+      background-color: rgb(255, 128, 128);
+    }
+}
+  
 .card{
     height: 400px;
     width: 700px;
@@ -20,6 +38,15 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
+.correct-card{
+    animation: correctfillIn 1s ease-in-out forwards;
+}
+
+.wrong-card{
+    animation: wrongfillIn 1s ease-in-out forwards;
+}
+  
 
 .question{
     font-family: 'Rubik Doodle Shadow', cursive;
@@ -61,7 +88,35 @@ body {
     
 }
 
-.option:hover {
+.option:hover:not(.correct-answer):not(.wrong-answer) {
     background-color: #0c0a0ac5;
+    color: white;
+}
+
+@keyframes correct-answer {
+    0% {
+      background-color: white;
+    }
+    100% {
+      background-color: green;
+    }
+}
+
+@keyframes wrong-answer {
+    0% {
+      background-color: white;
+    }
+    100% {
+      background-color: red;
+    }
+}
+
+.correct-answer{
+    animation: correct-answer 1s ease-in-out forwards;
+    color: white;
+}
+
+.wrong-answer{
+    animation: wrong-answer 1s ease-in-out forwards;
     color: white;
 }
