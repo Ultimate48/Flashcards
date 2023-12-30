@@ -30,7 +30,13 @@ const showQuestions = async () => {
     const card = document.querySelector('.card');
 
     questionText.innerHTML = qna[0].question;
+    if(qna[0].question.length > 100){
+        playGame();
+    }
     options.forEach((option, index) => {
+        if(qna[0].options[index].length > 30){
+            playGame();
+        }
         option.innerHTML = qna[0].options[index];
         if (qna[0].options[index] === qna[0].answer) {
             option.classList.add('correct');
